@@ -171,6 +171,7 @@ Vector<T>::Vector(const Vector<T> & rhs):
     fout << "Constructor was called\n";
     try {
         data_ = new T[capacity_];
+        std::copy(rhs.data_, rhs.data_ + rhs.size_, data_);
     }
     catch(const std::bad_alloc & e){
         fout << "Smth wrong with memory\n";
